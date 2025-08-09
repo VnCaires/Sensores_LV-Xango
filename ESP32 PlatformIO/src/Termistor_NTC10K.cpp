@@ -22,7 +22,7 @@ R0 — resistência nominal a 25 °C (10 kΩ)
 #include <Arduino.h>
 
 //------------- Configurações -------------
-const int  PIN_NTC          = 34;      // ADC1_CH6
+const int  PIN_NTC          = 34;      // ADC1_CH6 --- o GPIO34 (do ESP32) é só entrada, perfeito para ADC.
 const int  ADC_RESOLUTION   = 4095;    // 12 bits
 const float VREF            = 3.3;     // tensão da placa ESP32
 const float R_FIXED         = 10000.0; // 10 kΩ de precisão 1%
