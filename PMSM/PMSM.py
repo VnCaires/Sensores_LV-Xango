@@ -638,4 +638,6 @@ def update_graph(btn_velocity, btn_currents, btn_voltages, btn_flux, btn_control
 
 
 if __name__ == "__main__":
-    app.run_server(host="0.0.0.0", port=8050, debug=False)
+    import os
+    port = int(os.environ.get("PORT", 8050))  # Render define PORT
+    app.run(host="0.0.0.0", port=port, debug=False)
