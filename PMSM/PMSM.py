@@ -380,6 +380,19 @@ app.layout = html.Div([
                 html.I(className="fas fa-chart-bar", style={'marginRight': '8px'}),
                 "Visão Completa"
             ], id='btn-complete', className='btn btn-dark'),
+
+            html.Div([
+                html.Label("Tempo de Simulação (s):"),
+                dcc.Input(
+                    id='input-tmax',
+                    type='number',
+                    value=2.0,   # valor inicial
+                    step=0.1,
+                    min=0.1,
+                    style={'marginLeft': '10px', 'width': '100px'}
+                )
+            ], style={'textAlign': 'center', 'marginBottom': '20px'}),
+
         ], style={'textAlign': 'center', 'marginBottom': '30px', 'display': 'flex', 
                  'justifyContent': 'center', 'flexWrap': 'wrap', 'gap': '10px'}),
         
@@ -566,7 +579,7 @@ def create_complete_plot(motor):
     
     return fig
 
-# Callback para executar a simulação e atualizar o gráfico
+
 @app.callback(
     [Output('motor-graph', 'figure'),
      Output('simulation-data', 'data')],
@@ -622,6 +635,7 @@ def update_graph(btn_velocity, btn_currents, btn_voltages, btn_flux, btn_control
 
     # --- 5) retorno ÚNICO ---
     return fig, data
+
 
 if __name__ == '__main__':
     app.run(debug=True)
