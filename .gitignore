@@ -1,2 +1,4 @@
 PMSM/venv/
 PMSM/.env/
+
+.vscode/
